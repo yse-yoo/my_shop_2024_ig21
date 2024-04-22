@@ -15,7 +15,7 @@ $_SESSION['my_shop']['regist'] = $_POST;
 // POSTデータ受信
 $post = $_POST;
 
-// Valication
+// Validation
 $errors = [];
 if (empty($post['name'])) {
     $errors['name'] = '名前を入力してください';
