@@ -6,6 +6,9 @@ session_start();
 if (!empty($_SESSION['my_shop']['regist'])) {
     $regist = $_SESSION['my_shop']['regist'];
 }
+if (!empty($_SESSION['my_shop']['errors'])) {
+    $errors = $_SESSION['my_shop']['errors'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,16 +29,19 @@ if (!empty($_SESSION['my_shop']['regist'])) {
             <div>
                 <label class="form-label" for="">名前</label>
                 <input class="form-control" type="text" name="name" value="<?= @$regist['name'] ?>">
+                <label for="" class="text-danger"><?= @$errors['name'] ?></label>
             </div>
 
             <div>
                 <label class="form-label" for="">Email</label>
                 <input class="form-control" type="email" name="email" value="<?= @$regist['email'] ?>">
+                <label for="" class="text-danger"><?= @$errors['email'] ?></label>
             </div>
 
             <div>
                 <label class="form-label" for="">パスワード</label>
                 <input class="form-control" type="password" name="password">
+                <label for="" class="text-danger"><?= @$errors['password'] ?></label>
             </div>
 
             <div class="mt-3 text-center">

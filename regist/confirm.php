@@ -15,12 +15,16 @@ $_SESSION['my_shop']['regist'] = $_POST;
 // POSTデータ受信
 $post = $_POST;
 
+//バリデーション（データチェック）
+if (isset($_SESSION['my_shop']['errors'])) {
+    unset($_SESSION['my_shop']['errors']);
+}
 $errors = validate($post);
 if ($errors) {
+    $_SESSION['my_shop']['errors'] = $errors;
     header('Location: input.php');
     exit;
 }
-
 
 function validate($posts)
 {
