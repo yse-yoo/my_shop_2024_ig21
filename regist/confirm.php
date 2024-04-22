@@ -23,7 +23,7 @@ $post = $_POST;
 <body>
     <h2>会員登録確認</h2>
     <!-- form request confirm.php にデータをPOST送信-->
-    <form action="" method="post">
+    <form action="add.php" method="post">
         <div>
             <label for="">名前</label>
             <p><?= $post['name'] ?></p>
