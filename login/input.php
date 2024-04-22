@@ -17,7 +17,7 @@
         <h2 class="p-2 text-center">ログイン</h2>
         <form action="auth.php" method="post">
             <div class="form-floating mt-3">
-                <input class="form-control" type="email" name="email" value="<?= @$member['email'] ?>">
+                <input class="form-control" type="text" name="email" value="<?= @$member['email'] ?>">
                 <label class="form-label" for="">Email</label>
                 <p class="text-danger"><?= @$errors["email"] ?></p>
             </div>

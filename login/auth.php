@@ -30,8 +30,19 @@ $email = $posts['email'];
 $password = $posts['password'];
 
 //Email検索(SQL)
-$sql = "SELECT * FROM users WHERE email = '{$email}'";
-$stmt = $pdo->query($sql);
+// $sql = "SELECT * FROM users WHERE email = '{$email}'";
+// $stmt = $pdo->query($sql);
+
+$sql = "SELECT * FROM users WHERE email = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$email]);
+
+// $sql = "SELECT * FROM users WHERE email = :email";
+// $stmt = $pdo->prepare($sql);
+// $stmt->bindParam(':email', $email);
+// $stmt->execute();
+
+var_dump($stmt);
 
 // データ変換
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
