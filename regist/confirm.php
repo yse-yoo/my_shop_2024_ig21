@@ -1,7 +1,12 @@
 <?php 
+// セッション開始
+session_start();
+
+// セッションにPOSTデータを登録
+$_SESSION['my_shop']['regist'] = $_POST;
+
 // POSTデータ受信
 $post = $_POST;
-
 ?>
 
 <!DOCTYPE html>

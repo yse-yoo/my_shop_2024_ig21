@@ -1,3 +1,13 @@
+<?php 
+// セッション開始
+session_start();
+
+//セッションが空でなければ、前回のデータ取得
+if (!empty($_SESSION['my_shop']['regist'])) {
+    $regist = $_SESSION['my_shop']['regist'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +23,12 @@
     <form action="confirm.php" method="post">
         <div>
             <label for="">名前</label>
-            <input type="text" name="name">
+            <input type="text" name="name" value="<?= @$regist['name'] ?>">
         </div>
 
         <div>
             <label for="">Email</label>
-            <input type="email" name="email">
+            <input type="email" name="email" value="<?= @$regist['email'] ?>">
         </div>
 
         <div>
