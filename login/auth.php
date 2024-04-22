@@ -26,6 +26,8 @@ $posts = $_POST;
 
 // name=email のデータ
 $email = $posts['email'];
+// name=password のデータ
+$password = $posts['password'];
 
 //Email検索(SQL)
 $sql = "SELECT * FROM users WHERE email = '{$email}'";
@@ -33,11 +35,20 @@ $stmt = $pdo->query($sql);
 
 // データ変換
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
-var_dump($user);
 
+$is_scussess = false;
+if ($user) {
+    $hash = $user['password'];
+    //パスワードハッシュ検証
+    $is_scussess = password_verify($password, $hash);
+}
+
+if ($is_scussess) {
+    //ログイン成功の場合、user/ にリダイレクト
+    header('Location: ../user/');
+} else {
+    //ログイン失敗の場合、login/input.php にリダイレクト
+    header('Location: input.php');
+}
 //TODO: セッション登録
-//TODO: パスワードハッシュ検証
-
-//TODO: ログイン成功の場合、user/ にリダイレクト
 //TODO: エラーメッセージをセッションに登録
-//TODO: ログイン失敗の場合、login/input.php にリダイレクト
