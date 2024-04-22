@@ -9,7 +9,7 @@
 
 <body>
     <h2>会員登録</h2>
-    <!-- form request -->
+    <!-- form request confirm.php にデータをPOST送信-->
     <form action="confirm.php" method="post">
         <div>
             <label for="">名前</label>
@@ -28,7 +28,7 @@
 
         <div>
             <button>次へ</button>
-            <a href="confirm.php">次へ</a>
+            <a href="">ログイン画面へ</a>
         </div>
     </form>
 </body>
