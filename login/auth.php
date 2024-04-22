@@ -22,10 +22,17 @@ try {
 }
 
 //TODO: POSTデータ取得
+$posts = $_POST;
+
+$email = $posts['email'];
+
 //TODO: Email検索(SQL)
+$sql = "SELECT * FROM users WHERE email = '{$email}'";
+$stmt = $pdo->query($sql);
 
-
-
+// データ変換
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+var_dump($user);
 
 //TODO: セッション登録
 //TODO: パスワードハッシュ検証
