@@ -21,12 +21,13 @@ try {
     exit;
 }
 
-//TODO: POSTデータ取得
+//POSTデータ取得
 $posts = $_POST;
 
+// name=email のデータ
 $email = $posts['email'];
 
-//TODO: Email検索(SQL)
+//Email検索(SQL)
 $sql = "SELECT * FROM users WHERE email = '{$email}'";
 $stmt = $pdo->query($sql);
 
