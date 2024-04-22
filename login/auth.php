@@ -22,8 +22,12 @@ try {
 }
 
 //TODO: POSTデータ取得
+//TODO: Email検索(SQL)
+
+
+
+
 //TODO: セッション登録
-//TODO: Email検索
 //TODO: パスワードハッシュ検証
 
 //TODO: ログイン成功の場合、user/ にリダイレクト
