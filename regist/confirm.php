@@ -12,8 +12,8 @@ session_regenerate_id(true);
 // セッションにPOSTデータを登録
 $_SESSION['my_shop']['regist'] = $_POST;
 
-// POSTデータ受信
-$post = $_POST;
+// POSTデータ受信（サニタイズ）
+$post = sanitize($_POST);
 
 //バリデーション（データチェック）
 if (isset($_SESSION['my_shop']['errors'])) {
@@ -25,6 +25,19 @@ if ($errors) {
     header('Location: input.php');
     exit;
 }
+
+/**
+ * サニタイズ
+ */
+function sanitize($array)
+{
+    if (!is_array($array)) return [];
+    foreach ($array as $key => $value) {
+        $array[$key] = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+    }
+    return $array;
+}
+
 
 function validate($posts)
 {
