@@ -20,7 +20,7 @@ if (!empty($_SESSION['my_shop']['regist'])) {
 
 <body>
     <main class="container">
-        <h2>会員登録</h2>
+        <h2 class="text-center p-3">会員登録</h2>
         <!-- form request confirm.php にデータをPOST送信-->
         <form action="confirm.php" method="post">
             <div>
