@@ -42,8 +42,6 @@ $stmt->execute([$email]);
 // $stmt->bindParam(':email', $email);
 // $stmt->execute();
 
-var_dump($stmt);
-
 // データ変換
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
