@@ -7,5 +7,7 @@
 </head>
 <body>
     <h2>会員登録完了</h2>
+
+    <a href="../">Top Page</a>
 </body>
 </html>
