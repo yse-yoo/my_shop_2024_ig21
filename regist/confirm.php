@@ -1,4 +1,9 @@
 <?php
+// POSTリクエストでなければ何も表示しない
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    exit;
+}
+
 // セッション開始
 session_start();
 // セッションハイジャック対策
@@ -9,6 +14,22 @@ $_SESSION['my_shop']['regist'] = $_POST;
 
 // POSTデータ受信
 $post = $_POST;
+
+// Valication
+$errors = [];
+if (empty($post['name'])) {
+    $errors['name'] = '名前を入力してください';
+}
+if (empty($post['email'])) {
+    $errors['email'] = 'メールアドレスを入力してください';
+}
+if (empty($post['password'])) {
+    $errors['password'] = 'パスワードを入力してください';
+}
+if ($errors) {
+    header('Location: input.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
