@@ -15,20 +15,27 @@ $_SESSION['my_shop']['regist'] = $_POST;
 // POSTデータ受信
 $post = $_POST;
 
-// Validation
-$errors = [];
-if (empty($post['name'])) {
-    $errors['name'] = '名前を入力してください';
-}
-if (empty($post['email'])) {
-    $errors['email'] = 'メールアドレスを入力してください';
-}
-if (empty($post['password'])) {
-    $errors['password'] = 'パスワードを入力してください';
-}
+$errors = validate($post);
 if ($errors) {
     header('Location: input.php');
     exit;
+}
+
+
+function validate($posts)
+{
+    // Validation
+    $errors = [];
+    if (empty($posts['name'])) {
+        $errors['name'] = '名前を入力してください';
+    }
+    if (empty($posts['email'])) {
+        $errors['email'] = 'メールアドレスを入力してください';
+    }
+    if (empty($posts['password'])) {
+        $errors['password'] = 'パスワードを入力してください';
+    }
+    return $errors;
 }
 ?>
 
