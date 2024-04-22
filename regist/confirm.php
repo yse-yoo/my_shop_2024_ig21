@@ -1,6 +1,8 @@
 <?php 
 // セッション開始
 session_start();
+// セッションハイジャック対策
+session_regenerate_id(true);
 
 // セッションにPOSTデータを登録
 $_SESSION['my_shop']['regist'] = $_POST;
