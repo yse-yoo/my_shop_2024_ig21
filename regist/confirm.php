@@ -1,3 +1,9 @@
+<?php 
+// POSTデータ受信
+$post = $_POST;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,14 +19,12 @@
     <form action="" method="post">
         <div>
             <label for="">名前</label>
+            <p><?= $post['name'] ?></p>
         </div>
 
         <div>
             <label for="">Email</label>
-        </div>
-
-        <div>
-            <label for="">パスワード</label>
+            <p><?= $post['email'] ?></p>
         </div>
 
         <div>
