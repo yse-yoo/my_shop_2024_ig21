@@ -1,11 +1,5 @@
 <?php
-// セッション開始
-session_start();
-
-//セッションが空でなければ、前回のデータ取得
-if (!empty($_SESSION['my_shop']['regist'])) {
-    $regist = $_SESSION['my_shop']['regist'];
-}
+//TODO: エラーメッセージ
 ?>
 
 <!DOCTYPE html>

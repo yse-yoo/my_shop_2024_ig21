@@ -40,7 +40,7 @@ if (!empty($_SESSION['my_shop']['regist'])) {
 
             <div class="mt-3 text-center">
                 <button class="btn btn-primary">次へ</button>
-                <a class="btn btn-outline-primary" href="">ログイン画面へ</a>
+                <a class="btn btn-outline-primary" href="../login/">ログイン画面へ</a>
             </div>
         </form>
     </main>
