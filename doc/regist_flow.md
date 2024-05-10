@@ -1,7 +1,7 @@
 ```mermaid
 flowchart TD
 
-subgraph ユーザ登録
+subgraph Register
 index[トップ]
 input[入力画面]
 confirm[確認画面]

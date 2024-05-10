@@ -9,6 +9,8 @@ edit[編集画面]
 list-->input-->add{追加}-.->list
 list-->|items.id|edit-->|items.id|update{更新}-.->list
 edit-->|items.id|delete{削除}-.->list
+input-->list
+edit-->list
 
 end
 ```
