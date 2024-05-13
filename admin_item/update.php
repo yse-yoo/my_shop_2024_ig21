@@ -16,7 +16,12 @@ $db = new DB();
 $posts = $db->sanitize($_POST);
 
 // items テーブルに指定したIDでレコードを更新するSQL
-$sql = "";
+$sql = "UPDATE items SET 
+                    name = :name, 
+                    code = :code, 
+                    price = :price, 
+                    stock = :stock
+                WHERE id = :id;";
 
 //SQL実行
 $stmt = $db->pdo->prepare($sql);
