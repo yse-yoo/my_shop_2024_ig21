@@ -68,6 +68,7 @@ $item = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <div class="mt-3">
             <form action="delete.php" method="post">
+                <input type="hidden" name="id" value="<?= $item['id'] ?>">
                 <button class="btn btn-danger" onclick="return confirm('削除してよいですか？')">削除</button>
             </form>
         </div>
