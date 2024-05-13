@@ -20,6 +20,11 @@ if (isset($_SESSION['my_shop']['errors'])) {
     unset($_SESSION['my_shop']['errors']);
 }
 $errors = validate($post);
+
+// TODO: usersテーブルに指定のEmailアドレスがあるかどうか検索SQL
+$sql = "SELECT * FROM users WHERE email = '{$post['email']}';";
+
+
 if ($errors) {
     $_SESSION['my_shop']['errors'] = $errors;
     header('Location: input.php');
