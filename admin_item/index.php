@@ -1,5 +1,8 @@
 <?php
-
+// TODO: DBに接続する
+// TODO: items テーブルから商品をすべて取得するSQL
+// TODO: SQLを実行
+// TODO: PHPで処理できる商品の配列作成
 $items = [];
 
 ?>
@@ -31,7 +34,7 @@ $items = [];
             <tbody>
                 <?php if ($items): ?>
                 <?php foreach ($items as $item): ?>
-                   <!-- 繰り返し -->
+                   <!-- TODO: 商品の繰り返し表示 -->
                 <?php endforeach ?>
                 <?php endif ?>
             </tbody>
