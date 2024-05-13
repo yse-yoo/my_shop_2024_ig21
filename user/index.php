@@ -1,3 +1,17 @@
+<?php 
+// セッション開始
+session_start();
+session_regenerate_id(true);
+
+// セッションからユーザを取得
+$user = $_SESSION['my_shop']['user'];
+
+//ユーザがログイン済みでなければ（セッションにユーザデータがない）ログインにリダイレクト
+if (!$user) {
+    header('Location: ../login/');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
