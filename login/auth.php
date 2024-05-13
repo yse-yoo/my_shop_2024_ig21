@@ -3,6 +3,11 @@
 require_once '../env.php';
 require_once '../lib/DB.php';
 
+// セッション開始
+session_start();
+session_regenerate_id(true);
+
+
 $db = new DB();
 $pdo = $db->pdo;
 
@@ -15,17 +20,9 @@ $email = $posts['email'];
 $password = $posts['password'];
 
 //Email検索(SQL)
-// $sql = "SELECT * FROM users WHERE email = '{$email}'";
-// $stmt = $pdo->query($sql);
-
 $sql = "SELECT * FROM users WHERE email = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$email]);
-
-// $sql = "SELECT * FROM users WHERE email = :email";
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindParam(':email', $email);
-// $stmt->execute();
 
 // データ変換
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -38,6 +35,9 @@ if ($user) {
 }
 
 if ($is_scussess) {
+    // セッションにユーザを登録
+    $_SESSION['my_shop']['user'] = $user;
+
     //ログイン成功の場合、user/ にリダイレクト
     header('Location: ../user/');
 } else {
