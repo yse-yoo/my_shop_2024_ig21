@@ -63,7 +63,12 @@ $item = $stmt->fetch(PDO::FETCH_ASSOC);
             <button class="btn btn-primary">更新</button>
             <a class="btn btn-outline-primary" href="./">戻る</a>
         </form>
-    </div>
+
+        <div class="mt-3">
+            <form action="delete.php" method="post">
+                <button class="btn btn-danger" onclick="return confirm('削除してよいですか？')">削除</button>
+            </form>
+        </div>
 </body>
 
 </html>
