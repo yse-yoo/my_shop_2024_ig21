@@ -1,4 +1,10 @@
 <?php
+// env.php を読み込み
+require_once '../env.php';
+
+// lib/DB.php を読み込み
+require_once '../lib/DB.php';
+
 // POSTリクエストでなければ何も表示しない
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
@@ -21,8 +27,18 @@ if (isset($_SESSION['my_shop']['errors'])) {
 }
 $errors = validate($post);
 
-// TODO: usersテーブルに指定のEmailアドレスがあるかどうか検索SQL
+// Email重複チェック
+// usersテーブルに指定のEmailアドレスがあるかどうか検索SQL
 $sql = "SELECT * FROM users WHERE email = '{$post['email']}';";
+
+// データベースに接続
+$db = new DB();
+$stmt = $db->pdo->prepare($sql);
+$stmt->execute();
+
+// データ取得
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+if ($user) $errors['email'] = "Emailは既に登録されています";
 
 
 if ($errors) {
