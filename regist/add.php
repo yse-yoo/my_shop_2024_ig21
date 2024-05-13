@@ -19,7 +19,7 @@ session_regenerate_id(true);
 $regist = $_SESSION['my_shop']['regist'];
 
 // パスワードのハッシュ化
-$regist = password_hash($regist['password'], PASSWORD_DEFAULT);
+$regist['password'] = password_hash($regist['password'], PASSWORD_DEFAULT);
 
 // データベースに接続
 $db = new DB();
