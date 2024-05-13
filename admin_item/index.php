@@ -1,10 +1,21 @@
 <?php
-// TODO: DBに接続する
-// TODO: items テーブルから商品をすべて取得するSQL
-// TODO: SQLを実行
-// TODO: PHPで処理できる商品の配列作成
-$items = [];
+// env.php を読み込み
+require_once '../env.php';
 
+// lib/DB.php を読み込み
+require_once '../lib/DB.php';
+
+// DBに接続する
+$db = new DB();
+
+// items テーブルから商品をすべて取得するSQL
+$sql = "SELECT * FROM items;";
+$stmt = $db->pdo->prepare($sql);
+// SQL実行
+$stmt->execute();
+
+// PHPで処理できる商品の配列作成
+$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +45,14 @@ $items = [];
             <tbody>
                 <?php if ($items): ?>
                 <?php foreach ($items as $item): ?>
-                   <!-- TODO: 商品の繰り返し表示 -->
+                    <tr>
+                        <td></td>
+                        <td><?= $item['code'] ?></td>
+                        <td><?= $item['name'] ?></td>
+                        <td><?= $item['price'] ?></td>
+                        <td><?= $item['stock'] ?></td>
+                        <td><?= $item['updated_at'] ?></td>
+                    </tr>
                 <?php endforeach ?>
                 <?php endif ?>
             </tbody>
