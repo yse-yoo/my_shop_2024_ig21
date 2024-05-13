@@ -18,19 +18,25 @@ session_regenerate_id(true);
 // セッションデータ取得
 $regist = $_SESSION['my_shop']['regist'];
 
+// パスワードのハッシュ化
+$regist = password_hash($regist['password'], PASSWORD_DEFAULT);
+
 // データベースに接続
 $db = new DB();
 
-// TODO: データベースに登録
 // users テーブルにレコードを挿入するSQL
 // CRUD:
 // Create: INSERT INTO
 // Read: SLELECT
 // Update: UPDATE
 // Delete: DELETE
-$sql = "INSERT INTO users (name, email, passoword)
+$sql = "INSERT INTO users (name, email, password)
         VALUES (:name, :email, :password);
         ";
+
+// データベースに登録
+$stmt = $db->pdo->prepare($sql);
+$stmt->execute($regist);
 
 // TODO: 予期せぬエラーの場合は、入力画面にリダイレクト
 // TODO: 成功の場合は、完了画面にリダイレクト
