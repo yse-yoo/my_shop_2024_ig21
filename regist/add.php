@@ -36,10 +36,15 @@ $sql = "INSERT INTO users (name, email, password)
 
 // データベースに登録
 $stmt = $db->pdo->prepare($sql);
-$stmt->execute($regist);
 
-// TODO: 予期せぬエラーの場合は、入力画面にリダイレクト
-// TODO: 成功の場合は、完了画面にリダイレクト
+// 成功の場合は、完了画面にリダイレクト
+try {
+    $stmt->execute($regist);
+} catch (\Throwable $th) {
+    // 予期せぬエラーの場合は、入力画面にリダイレクト
+    header('Location: input.php');
+    exit;
+}
 
 header('Location: complete.php');
 ?>
