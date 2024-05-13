@@ -21,5 +21,6 @@ if (!$user) {
 </head>
 <body>
     <h2>User Home</h2> 
+    <p><?= $user['name'] ?>さん、ようこそ</p>
 </body>
 </html>
