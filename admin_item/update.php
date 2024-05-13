@@ -15,22 +15,13 @@ $db = new DB();
 // POSTデータ取得（サニタイズ）
 $posts = $db->sanitize($_POST);
 
-// items テーブルにレコードを挿入するSQL
-$sql = "INSERT INTO items (code, name, price, stock)
-        VALUES (:code, :name, :price, :stock);
-        ";
+// items テーブルに指定したIDでレコードを更新するSQL
+$sql = "";
 
-// データベースに登録
+//SQL実行
 $stmt = $db->pdo->prepare($sql);
+$stmt->execute($posts);
 
-try {
-    $stmt->execute($posts);
-} catch (\Throwable $th) {
-    // 予期せぬエラーの場合は、入力画面にリダイレクト
-    header('Location: input.php');
-    exit;
-}
-
-// 成功の場合は、一覧画面にリダイレクト
-header('Location: ./');
+// 成功の場合は、編集画面にリダイレクト
+header("Location: edit.php?id={$posts['id']}");
 ?>

@@ -8,7 +8,7 @@ edit[編集画面]
 subgraph 商品管理
 
 list-->input-->add{追加}-.->list
-list-->|items.id|edit-->|items.id|update{更新}-.->list
+list-->|items.id|edit-->|items.id|update{更新}-.->|items.id|edit
 edit-->|items.id|delete{削除}-.->list
 input-->list
 edit-->list
