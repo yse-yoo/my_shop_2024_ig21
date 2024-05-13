@@ -50,7 +50,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 <?php if ($items): ?>
                 <?php foreach ($items as $item): ?>
                     <tr>
-                        <td></td>
+                        <td><a href="edit.php?id=<?= $item['id'] ?>">編集</a></td>
                         <td><?= $item['code'] ?></td>
                         <td><?= $item['name'] ?></td>
                         <td><?= $item['price'] ?></td>
