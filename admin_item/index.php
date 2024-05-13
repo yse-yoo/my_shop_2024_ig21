@@ -15,7 +15,11 @@ $stmt = $db->pdo->prepare($sql);
 $stmt->execute();
 
 // PHPで処理できる商品の配列作成
-$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$items = [];
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $items[] = $row;
+}
 ?>
 
 <!DOCTYPE html>
