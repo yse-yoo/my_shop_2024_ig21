@@ -54,7 +54,7 @@ function validate($posts)
     if (empty($posts['password'])) {
         $errors['password'] = 'パスワードを入力してください';
     } elseif (!preg_match($pattern, $posts['password'])) {
-        $errors['password'] = 'パスワードは6文字以上12文字以内の半角英数で入力してください。（大文字、文字含む）';
+        //$errors['password'] = 'パスワードは6文字以上12文字以内の半角英数で入力してください。（大文字、文字含む）';
     }
     return $errors;
 }
