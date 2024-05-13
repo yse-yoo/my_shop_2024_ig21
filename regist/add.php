@@ -27,7 +27,7 @@ $db = new DB();
 // users テーブルにレコードを挿入するSQL
 // CRUD:
 // Create: INSERT INTO
-// Read: SLELECT
+// Read: SELECT
 // Update: UPDATE
 // Delete: DELETE
 $sql = "INSERT INTO users (name, email, password)
