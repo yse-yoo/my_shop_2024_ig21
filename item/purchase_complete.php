@@ -3,6 +3,7 @@
 session_start();
 session_regenerate_id(true);
 
+// 商品カートの削除
 removeCartItems();
 
 function removeCartItems()
@@ -11,7 +12,6 @@ function removeCartItems()
         unset($_SESSION['my_shop']['cart_items']);
     }
 }
-
 ?>
 
 <!DOCTYPE html>

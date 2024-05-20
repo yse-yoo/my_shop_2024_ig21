@@ -23,13 +23,19 @@ if (!$user) {
 
 // 商品カート
 $cart_items = loadCartItems();
+if (!$cart_items) {
+    header('Location: cart.php');
+    exit;
+}
 
 // 購入
 $errors = purchase($user, $cart_items);
 if ($errors) {
     header('Location: cart.php');
+    exit;
 } else {
     header('Location: purchase_complete.php');
+    exit;
 }
 
 function purchase($user, $cart_items)
@@ -41,6 +47,7 @@ function purchase($user, $cart_items)
     $db = new DB();
 
     foreach ($cart_items as $cart_item) {
+        // SQLのデータ
         $data['user_id'] = $user['id'];
         $data['item_id'] = $cart_item['id'];
         $data['amount'] = 1;
