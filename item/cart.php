@@ -13,8 +13,6 @@ session_regenerate_id(true);
 if (isset($_GET['item_id'])) {
     // 商品IDの取得
     $item_id = $_GET['item_id'];
-    // var_dump($item_id);
-
     // カートに追加
     addCart($item_id);
 }
@@ -70,6 +68,9 @@ function loadCartItems()
                             <div class="card-body">
                                 <h5 class="card-title"><?= $cart_item['name'] ?></h5>
                                 <p class="card-text text-danger">&yen;<?= $cart_item['price'] ?></p>
+                                <p class="card-text">
+                                    <a href="remove.php?item_id=<?= $cart_item['id'] ?>">削除</a>
+                                </p>
                             </div>
                         </div>
                     </div>
