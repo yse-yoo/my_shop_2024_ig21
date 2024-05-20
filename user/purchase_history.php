@@ -18,7 +18,16 @@ if (!$user) {
 $db = new DB();
 
 // itemsテーブルからレコードを取得
-$sql = "SELECT user_items.*, items.* FROM user_items 
+$sql = "SELECT 
+               user_items.user_id, 
+               user_items.item_id, 
+               user_items.amount, 
+               user_items.total_price, 
+               user_items.created_at, 
+               items.code,
+               items.name,
+               items.price
+        FROM user_items 
     JOIN items
     ON user_items.item_id = items.id
     WHERE user_items.user_id = :user_id;";
