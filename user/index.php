@@ -25,10 +25,13 @@ if (!$user) {
 <body>
     <div class="container">
         <h2>User Home</h2>
-        <div>
-            <a class="btn btn-outline-primary" href="../item/cart.php">ショッピングカート</a>
-            <a class="btn btn-outline-primary" href="logout.php">ログアウト</a>
-        </div>
+        <nav class="mb-3">
+            <a class="" href="../item/cart.php">ショッピングカート</a>
+            |
+            <a class="" href="purchase_history.php">購入履歴</a>
+            |
+            <a class="" href="logout.php">ログアウト</a>
+        </nav>
         <div class="mt-3">
             <p><?= $user['name'] ?>さん、ようこそ</p>
         </div>
