@@ -12,7 +12,12 @@ $db = new DB();
 $item_id = $_GET['item_id'];
 // var_dump($item_id);
 
-
 // DBから items.id を使って商品の取得
+$sql = "SELECT * FROM items WHERE id = :id;";
+$stmt = $db->pdo->prepare($sql);
+$stmt->execute(['id' => $item_id]);
+$item = $stmt->fetch(PDO::FETCH_ASSOC);
+
+var_dump($item);
 
 ?>
