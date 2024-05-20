@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $user = loadUser();
 if (!$user) {
     header('Location: ../login/');
+    exit;
 }
 
 // 商品カート
