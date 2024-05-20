@@ -60,6 +60,10 @@ function loadCartItems()
     <main class="container">
         <h2 class="p-2 text-center">ショッピングカート</h2>
 
+        <div>
+            <a href="./">商品一覧</a>
+        </div>
+
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <?php if ($cart_items) : ?>
                 <?php foreach ($cart_items as $cart_item) : ?>
