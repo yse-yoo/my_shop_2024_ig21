@@ -9,14 +9,18 @@ require_once '../lib/DB.php';
 session_start();
 session_regenerate_id(true);
 
-// 商品IDの取得
-$item_id = $_GET['item_id'];
-// var_dump($item_id);
+// item_id パラメータがあればカート追加
+if (isset($_GET['item_id'])) {
+    // 商品IDの取得
+    $item_id = $_GET['item_id'];
+    // var_dump($item_id);
 
-// カートに追加
-addCart($item_id);
+    // カートに追加
+    addCart($item_id);
+}
 
-var_dump($_SESSION['my_shop']['cart_items']);
+// カートデータの取得
+$cart_items = loadCartItems();
 
 function addCart($item_id)
 {
@@ -34,3 +38,45 @@ function addCart($item_id)
         $_SESSION['my_shop']['cart_items'][$item_id] = $item;
     }
 }
+
+function loadCartItems()
+{
+    if (!empty($_SESSION['my_shop']['cart_items'])) {
+        return $_SESSION['my_shop']['cart_items'];
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <main class="container">
+        <h2 class="p-2 text-center">ショッピングカート</h2>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <?php if ($cart_items) : ?>
+                <?php foreach ($cart_items as $cart_item) : ?>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $cart_item['name'] ?></h5>
+                                <p class="card-text text-danger">&yen;<?= $cart_item['price'] ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach ?>
+            <?php endif ?>
+        </div>
+    </main>
+</body>
+
+</html>
