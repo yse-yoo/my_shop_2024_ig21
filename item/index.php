@@ -1,7 +1,5 @@
 <?php
 require_once '../env.php';
-
-// データベースに接続
 require_once '../lib/db.php';
 
 // DB接続
