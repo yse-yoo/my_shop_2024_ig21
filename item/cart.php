@@ -80,12 +80,16 @@ function loadCartItems()
         </div>
 
         <div class="mt-4 text-center">
-            <p>
-                この内容で購入しますか？
-            </p>
-            <form action="purchase.php" method="post">
-                <button class="btn btn-primary">購入</button>
-            </form>
+            <?php if (!empty($cart_items)) : ?>
+                <p>
+                    この内容で購入しますか？
+                </p>
+                <form action="purchase.php" method="post">
+                    <button class="btn btn-primary">購入</button>
+                </form>
+            <?php else: ?>
+                <p>カートに商品がありません</p>
+            <?php endif ?>
         </div>
     </main>
 </body>

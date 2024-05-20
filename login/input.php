@@ -33,10 +33,6 @@
                 <a href="../regist/" class="btn btn-outline-primary w-100">新規会員登録</a>
             </div>
 
-            <div class="text-center mt-3">
-                <button class="btn btn-primary w-100 me-1 mb-3">TOP</button>
-                <a href="../regist/" class="btn btn-outline-primary w-100">新規会員登録</a>
-            </div>
         </form>
     </main>
 </body>

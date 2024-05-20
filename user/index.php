@@ -26,6 +26,7 @@ if (!$user) {
     <div class="container">
         <h2>User Home</h2>
         <div>
+            <a class="btn btn-outline-primary" href="../item/cart.php">ショッピングカート</a>
             <a class="btn btn-outline-primary" href="logout.php">ログアウト</a>
         </div>
         <div class="mt-3">
