@@ -11,10 +11,8 @@ session_regenerate_id(true);
 
 // item_id パラメータがあればカート追加
 if (isset($_GET['item_id'])) {
-    // 商品IDの取得
-    $item_id = $_GET['item_id'];
     // カートに追加
-    addCart($item_id);
+    addCart($_GET['item_id']);
 }
 
 // カートデータの取得
