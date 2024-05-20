@@ -61,7 +61,6 @@ function loadCartItems()
         <div>
             <a href="./">商品一覧</a>
         </div>
-
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <?php if ($cart_items) : ?>
                 <?php foreach ($cart_items as $cart_item) : ?>
@@ -78,6 +77,15 @@ function loadCartItems()
                     </div>
                 <?php endforeach ?>
             <?php endif ?>
+        </div>
+
+        <div class="mt-4 text-center">
+            <p>
+                この内容で購入しますか？
+            </p>
+            <form action="purchase.php" method="post">
+                <button class="btn btn-primary">購入</button>
+            </form>
         </div>
     </main>
 </body>
